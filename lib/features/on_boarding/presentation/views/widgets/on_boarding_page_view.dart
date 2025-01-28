@@ -21,12 +21,12 @@ class OnBoardingPageView extends StatelessWidget {
             title:  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('مرحبًا بك في' , style: Styles.bold23 ,),
-                Text(' HUB' , style:  Styles.bold23.copyWith(color: Color(0xffF4A91F),),),
+                const Text('مرحبًا بك في' , style: Styles.bold23 ,),
+                Text(' HUB' , style:  Styles.bold23.copyWith(color: const Color(0xffF4A91F),),),
                 Text('Fruit', style: Styles.bold23.copyWith(color: kPrimaryColor,),),
               ],
             )),
-        PageViewItems(
+        const PageViewItems(
             isVisible: false,
             image: Assets.imagesPageViewItemImage2,
             backgroundImage: Assets.imagesPageViewItemBackgroundImage2,
