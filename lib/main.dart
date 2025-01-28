@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/helper_functions/on_generate_route.dart';
 import 'package:e_commerce_app/core/services/shared_preferences_singleton.dart';
+import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:e_commerce_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class FruitsHub extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Cairo',
+        colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor)
       ),
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
