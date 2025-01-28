@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/utils/app_colors.dart';
+import 'package:e_commerce_app/core/utils/app_text_styles.dart';
 import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:e_commerce_app/features/on_boarding/presentation/views/widgets/page_view_items.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      children:const [
+      children: [
         PageViewItems(
             isVisible: true,
             image: Assets.imagesPageViewItemImage1,
@@ -19,9 +21,9 @@ class OnBoardingPageView extends StatelessWidget {
             title:  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('مرحبًا بك في'),
-                Text('HUB'),
-                Text('Fruit'),
+                Text('مرحبًا بك في' , style: Styles.bold23 ,),
+                Text(' HUB' , style:  Styles.bold23.copyWith(color: Color(0xffF4A91F),),),
+                Text('Fruit', style: Styles.bold23.copyWith(color: kPrimaryColor,),),
               ],
             )),
         PageViewItems(
@@ -32,10 +34,7 @@ class OnBoardingPageView extends StatelessWidget {
                 'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
             title:  Text(
               'ابحث وتسوق',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 24),
+              style: Styles.bold23
             )),
       ],
     );
