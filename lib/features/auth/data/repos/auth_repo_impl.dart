@@ -17,14 +17,29 @@ class AuthRepoImpl extends AuthRepo {
       required String password,
       required String name}) async {
     try {
-  User user = await firebaseAuthServices.createUserWithEmailAndPassword(
-      emailAddress: email, password: password);
+      User user = await firebaseAuthServices.createUserWithEmailAndPassword(
+          emailAddress: email, password: password);
       return right(UserModel.fromirebaseUser(user));
-} on Customexception catch (e) {
-    return left(ServerFailure(message: e.message));
-}
-catch (e) {
-    return left(ServerFailure(message: 'حدث خطأ ما. يرجى المحاولة مرة أخرى'));
-}
+    } on Customexception catch (e) {
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
+      return left(
+          ServerFailure(message: 'حدث خطأ ما. يرجى المحاولة مرة أخرى'));
+    }
+  }
+
+  @override
+  Future<Either<Failures, UserEntity>> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      var user = await firebaseAuthServices.signInWithEmailAndPassword(
+          emailAddress: email, password: password);
+      return right(UserModel.fromirebaseUser(user));
+    } on Customexception catch (e) {
+      return left(ServerFailure(message: e.message));
+    } catch (e) {
+      return left(
+          ServerFailure(message: 'حدث خطأ ما. يرجى المحاولة مرة أخرى'));
+    }
   }
 }
