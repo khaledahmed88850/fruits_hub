@@ -4,7 +4,7 @@ import 'package:e_commerce_app/features/auth/presentation/views/widgets/login_vi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/cubits/login_cubit/login_cubit.dart';
+import '../cubits/login_cubit/login_cubit.dart';
 import '../../domain/repos/auth_repo.dart';
 
 class LoginView extends StatelessWidget {

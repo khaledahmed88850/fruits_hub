@@ -2,7 +2,7 @@ import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/helper_functions/build_error.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
 import 'package:e_commerce_app/core/widgets/custom_text_form_field.dart';
-import 'package:e_commerce_app/features/auth/data/cubits/create_user_cubit/create_user_cubit.dart';
+import 'package:e_commerce_app/features/auth/presentation/cubits/create_user_cubit/create_user_cubit.dart';
 import 'package:e_commerce_app/features/auth/presentation/views/widgets/terms_and_conditions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

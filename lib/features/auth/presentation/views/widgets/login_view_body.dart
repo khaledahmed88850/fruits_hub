@@ -4,7 +4,7 @@ import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
 import 'package:e_commerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:e_commerce_app/core/widgets/or_divider.dart';
-import 'package:e_commerce_app/features/auth/data/cubits/login_cubit/login_cubit.dart';
+import 'package:e_commerce_app/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:e_commerce_app/features/auth/presentation/views/widgets/social_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,7 +75,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       formKey.currentState!.save();
                       autovalidateMode = AutovalidateMode.disabled;
                       BlocProvider.of<LoginCubit>(context)
-                          .loginUser(email: email, password: password);
+                          .loginWithEmailAndPassword(email: email, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -94,21 +94,27 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              const SocialLoginButton(
+               SocialLoginButton(
+                onPressed:() {
+                  BlocProvider.of<LoginCubit>(context).loginWithGoogle();
+                },
                 title: 'تسجيل بواسطة جوجل',
                 iconImage: Assets.imagesGoogleIcon,
               ),
+              // const SizedBox(
+              //   height: 16,
+              // ),
+              // const SocialLoginButton(
+              //   title: 'تسجيل بواسطة ابل',
+              //   iconImage: Assets.imagesAppleIcon,
+              // ),
               const SizedBox(
                 height: 16,
               ),
-              const SocialLoginButton(
-                title: 'تسجيل بواسطة ابل',
-                iconImage: Assets.imagesAppleIcon,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              const SocialLoginButton(
+               SocialLoginButton(
+                onPressed: () {
+                  BlocProvider.of<LoginCubit>(context).loginWithFacebook();
+                },
                 title: 'تسجيل بواسطة فيسبوك',
                 iconImage: Assets.imagesFacebookIcon,
               ),

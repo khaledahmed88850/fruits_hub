@@ -42,4 +42,25 @@ class AuthRepoImpl extends AuthRepo {
           ServerFailure(message: 'حدث خطأ ما. يرجى المحاولة مرة أخرى'));
     }
   }
+  
+  @override
+  Future<Either<Failures, UserEntity>> signInWithGoogle() async {
+ try {
+  var user  =  await firebaseAuthServices.signInWithGoogle();
+  return right(UserModel.fromirebaseUser(user));
+}  catch (e) {
+  return left(ServerFailure(message: ' حدث خطأ ما. يرجى المحاولة مرة أخرى'));
+}
+  }
+  
+  @override
+  Future<Either<Failures, UserEntity>> signInWithFacebook() async{
+  try {
+  var user   = await firebaseAuthServices.signInWithFacebook();
+  return right(UserModel.fromirebaseUser(user)); 
+}  catch (e) {
+  return left(ServerFailure(message: ' حدث خطأ ما. يرجى المحاولة مرة أخرى'));
+}
+    
+  }
 }

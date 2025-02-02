@@ -6,7 +6,7 @@ AppBar customAppBar( {required BuildContext context , required String title}) {
     return AppBar(
       leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).maybePop();
           },
           icon: const Icon(
             Icons.arrow_back_ios_new_sharp,
