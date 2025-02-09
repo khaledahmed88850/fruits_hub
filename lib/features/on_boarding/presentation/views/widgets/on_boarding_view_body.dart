@@ -51,7 +51,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               activeColor: kPrimaryColor,
               color: currentPage == 1
                   ? kPrimaryColor
-                  : kPrimaryColor.withOpacity(0.5)),
+                  : kPrimaryColor.withValues(alpha:0.5),),
         ),
         const SizedBox(
           height: 29,

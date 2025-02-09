@@ -1,5 +1,5 @@
-
 import 'package:e_commerce_app/features/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:e_commerce_app/features/home/presentation/views/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -17,6 +17,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
+            Navigator.pushNamed(context, MainView.routeName);
         }
         if (state is LoginFailure) {
           buildError(context, state.message);

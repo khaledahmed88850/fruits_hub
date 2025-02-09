@@ -15,7 +15,8 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<CreateUserCubit, CreateUserState>(
       listener: (context, state) {
         if (state is CreateUserSuccess) {
-
+          Navigator.pop(context);
+          buildError(context, 'تم التسجيل بنجاح');
         }
         if (state is CreateUserFailure) {
           buildError(context, state.message);
@@ -28,6 +29,4 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
       },
     );
   }
-
-
 }
