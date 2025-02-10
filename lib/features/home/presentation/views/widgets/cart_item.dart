@@ -1,17 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
+import 'package:e_commerce_app/features/home/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/cart_item_action_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../domain/entities/cart_item_entity.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
+    required this.cartItemEntity,
   });
-
+  final CartItemEntity cartItemEntity;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,8 +33,8 @@ class CartItem extends StatelessWidget {
                   height: 92,
                   width: 73,
                   color: const Color(0xffF3F5F7),
-                  child: Image.asset(
-                    Assets.imagesWatermelonTest,
+                  child: CachedNetworkImage(
+                    imageUrl: cartItemEntity.productEntity.imageUrl!,
                   )),
               const SizedBox(
                 width: 27,
@@ -38,19 +43,29 @@ class CartItem extends StatelessWidget {
                 child: Column(children: [
                   ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-                    title: const Text(
-                      'بطيخ',
+                    title: Text(
+                      cartItemEntity.productEntity.name,
                       style: Styles.bold13,
                     ),
                     subtitle: Text(
-                      '3 كم',
+                      '${cartItemEntity.count} كم',
                       style: Styles.regular13.copyWith(color: Colors.orange),
                     ),
-                    trailing: SvgPicture.asset(Assets.imagesTrash),
+                    trailing: GestureDetector(
+                        onTap: () {
+                          context.read<CartCubit>().removeProductFromCart(
+                              cartItemEntity.productEntity);
+                        },
+                        child: SvgPicture.asset(Assets.imagesTrash)),
                   ),
                   Row(
                     children: [
-                    const  CartItemActionButton(
+                      CartItemActionButton(
+                        onTap: () {
+                          context
+                              .read<CartCubit>()
+                              .addProductToCart(cartItemEntity.productEntity);
+                        },
                         icon: Icons.add,
                         iconColor: Colors.white,
                         backgroundColor: kDarkPrimaryColor,
@@ -58,21 +73,27 @@ class CartItem extends StatelessWidget {
                       const SizedBox(
                         width: 16,
                       ),
-                      const Text(
-                        '3',
+                      Text(
+                        cartItemEntity.count.toString(),
                         style: Styles.bold16,
                       ),
                       const SizedBox(
                         width: 16,
                       ),
-                   const   CartItemActionButton(
-                        backgroundColor: Color(0xffF3F5F7),
+                      CartItemActionButton(
+                        onTap: () {
+                          context
+                              .read<CartCubit>()
+                              .decreaseProductAmountFromCart(
+                                  cartItemEntity.productEntity);
+                        },
+                        backgroundColor: const Color(0xffF3F5F7),
                         icon: Icons.remove,
-                        iconColor: Color(0xff979899),
+                        iconColor: const Color(0xff979899),
                       ),
                       const Spacer(),
                       Text(
-                        '60 جنية',
+                        '${cartItemEntity.totalPrice()} جنية',
                         style: Styles.bold16
                             .copyWith(color: const Color(0xffF4A91F)),
                       ),

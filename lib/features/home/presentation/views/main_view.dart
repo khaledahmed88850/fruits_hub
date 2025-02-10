@@ -1,42 +1,29 @@
-import 'package:e_commerce_app/features/home/presentation/views/cart_view.dart';
-import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
-import 'package:e_commerce_app/features/home/presentation/views/products_view.dart';
-import 'package:e_commerce_app/features/home/presentation/views/widgets/custom_bottom_navigation_bar.dart';
+import 'package:e_commerce_app/core/helper_functions/build_error.dart';
+import 'package:e_commerce_app/core/utils/app_colors.dart';
+import 'package:e_commerce_app/features/home/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainView extends StatefulWidget {
+import 'main_view_body.dart';
+
+class MainView extends StatelessWidget {
   const MainView({super.key});
   static const String routeName = 'MainView';
 
   @override
-  State<MainView> createState() => _MainViewState();
-}
-
-class _MainViewState extends State<MainView> {
-  List<Widget> screens = [
-    const HomeView(),
-    const ProductsView(),
-    const CartView(),
-    const Center(
-      child: Text('Profile'),
-    ),
-  ];
-
-  int currentIndex = 0;
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(
-        onItemTapped: (value) {
-          currentIndex = value;
-          setState(() {});
-        },
-      ),
-      body: SafeArea(
-          child: IndexedStack(
-        index: currentIndex,
-        children: screens,
-      )),
+    return BlocProvider(
+      create: (context) => CartCubit(),
+      child: BlocListener<CartCubit, CartState>(
+          listener: (context, state) {
+            if (state is CartProductAdded) {
+              buildError(context, 'تم اضافة المنتج بنجاح',
+                  color: kDarkPrimaryColor);
+            } else if (state is CartProductRemoved) {
+              buildError(context, 'تم حذف المنتج بنجاح');
+            }
+          },
+          child: const MainViewBody()),
     );
   }
 }

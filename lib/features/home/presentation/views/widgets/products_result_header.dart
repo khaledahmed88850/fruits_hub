@@ -15,7 +15,7 @@ class ProductsResultHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           '4 نتائج',
           style: Styles.bold16,
         ),

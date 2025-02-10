@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'review_entity.dart';
 

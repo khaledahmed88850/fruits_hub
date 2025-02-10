@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/core/helper_functions/get_it_function.dart';
-import 'package:e_commerce_app/features/home/presentation/manager/cubits/cubit/product_view_screens_cubit.dart';
+import 'package:e_commerce_app/features/home/presentation/manager/cubits/products_view_screens_cubit/product_view_screens_cubit.dart';
 import 'package:e_commerce_app/features/home/presentation/manager/cubits/get_products_cubit/get_product_cubit.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/products_view_body.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/products_view_results.dart';

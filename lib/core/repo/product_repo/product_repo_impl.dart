@@ -22,7 +22,7 @@ class ProductRepoImpl implements ProductRepo {
       List<ProductModel> productList =
           data.map((e) => ProductModel.fromJson(e)).toList();
       return Right(productList.map((e) => e.toEntity()).toList());
-    } on Exception catch (e) {
+    } on Exception {
       return Left(ServerFailure(message: 'Failed to get products'));
     }
   }
@@ -36,7 +36,7 @@ class ProductRepoImpl implements ProductRepo {
       List<ProductModel> productList =
           data.map((e) => ProductModel.fromJson(e)).toList();
       return Right(productList.map((e) => e.toEntity()).toList());
-    } on Exception catch (e) {
+    } on Exception {
       return Left(ServerFailure(message: 'Failed to get products'));
     }
   }

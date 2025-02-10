@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/widgets/custom_appbar.dart';
-import 'package:e_commerce_app/features/home/presentation/manager/cubits/cubit/product_view_screens_cubit.dart';
+import 'package:e_commerce_app/features/home/presentation/manager/cubits/products_view_screens_cubit/product_view_screens_cubit.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/best_selling_header.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -38,7 +38,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
             title: 'المنتجات',
             context: context,
             notificationsActivated: true),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 SearchTextField(
@@ -46,21 +46,21 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                     context.read<ProductViewScreensCubit>().changeIndex(1);
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                OurProducts(),
-                SizedBox(
+                const OurProducts(),
+                const SizedBox(
                   height: 24,
                 ),
-                BestSellingHeader(),
-                SizedBox(
+                const BestSellingHeader(),
+                const SizedBox(
                   height: 8,
                 ),
               ],
             ),
           ),
-          BestSellingGridViewBlocBuilder(),
+          const BestSellingGridViewBlocBuilder(),
         ],
       ),
     );
