@@ -8,7 +8,6 @@ import 'package:e_commerce_app/features/on_boarding/presentation/views/on_boardi
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../home/presentation/views/main_view_body.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

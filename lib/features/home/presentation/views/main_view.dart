@@ -12,18 +12,15 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(),
-      child: BlocListener<CartCubit, CartState>(
-          listener: (context, state) {
-            if (state is CartProductAdded) {
-              buildError(context, 'تم اضافة المنتج بنجاح',
-                  color: kDarkPrimaryColor);
-            } else if (state is CartProductRemoved) {
-              buildError(context, 'تم حذف المنتج بنجاح');
-            }
-          },
-          child: const MainViewBody()),
-    );
+    return BlocListener<CartCubit, CartState>(
+        listener: (context, state) {
+          if (state is CartProductAdded) {
+            buildError(context, 'تم اضافة المنتج بنجاح',
+                color: kDarkPrimaryColor);
+          } else if (state is CartProductRemoved) {
+            buildError(context, 'تم حذف المنتج بنجاح');
+          }
+        },
+        child: const MainViewBody());
   }
 }

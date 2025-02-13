@@ -131,5 +131,6 @@ class AuthRepoImpl extends AuthRepo {
   Future saveUserData({required UserEntity user}) async{
     var jsonData = jsonEncode(UserModel.toEntity(user).toMap());
     await Prefs.setString(kUserData, jsonData);
+      
   }
 }

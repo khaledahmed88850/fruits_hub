@@ -34,6 +34,9 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
           SliverToBoxAdapter(
             child: Column(
               children: [ customAppBar(
+                onBackPressed: () {
+                  
+                },
             arrowBackExist: false,
             title: 'المنتجات',
             context: context,

@@ -7,5 +7,10 @@ abstract class DatabaseServices {
       {required String path, required String documentId});
   Future<bool> ifDataExists({required String path, required String documentId});
   Future<List<Map<String, dynamic>>> getAllData(
-      {required String path, Map<String , dynamic> ? query});
+      {required String path, Map<String, dynamic>? query});
+  Future<void> addDataToSubCollection(
+      {required String documentId,
+      required String path,
+      required String subCollection,
+      required Map<String, dynamic> data});
 }

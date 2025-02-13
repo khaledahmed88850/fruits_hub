@@ -21,4 +21,9 @@ class CartCubit extends Cubit<CartState> {
     cartEntity.removeProductFromCart(productEntity);
     emit(CartProductRemoved());
   }
+ int getCount (ProductEntity productEntity) 
+  {
+   int count = cartEntity.getCount(productEntity);
+   return count; 
+   }
 }

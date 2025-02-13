@@ -32,6 +32,9 @@ class _ProductsViewResultsState extends State<ProductsViewResults> {
             child: Column(
               children: [
                 customAppBar(
+                  onBackPressed: () {
+                    
+                  },
                     arrowBackExist: false,
                     title: 'المنتجات',
                     context: context,

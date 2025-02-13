@@ -17,6 +17,17 @@ class FirestoreServices implements DatabaseServices {
   }
 
   @override
+  Future<void> addDataToSubCollection(
+      {required String documentId,
+      required String path,
+      required String subCollection,
+      required Map<String, dynamic> data}) async {
+    var result =
+        firestore.collection(path).doc(documentId).collection(subCollection);
+    await result.add(data);
+  }
+
+  @override
   Future<Map<String, dynamic>> getData(
       {required String path, required String documentId}) async {
     var data = await firestore.collection(path).doc(documentId).get();

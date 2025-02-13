@@ -1,8 +1,13 @@
+
 import 'package:e_commerce_app/core/entities/product_entity.dart';
 import 'package:e_commerce_app/features/home/domain/entities/cart_item_entity.dart';
 
 class CartEntity {
   final List<CartItemEntity> cartEntityList;
+  toMap()
+  {
+    return cartEntityList.map((e) => e.toMap()).toList();
+  }
 
   CartEntity({required this.cartEntityList});
   void addProductToCart(ProductEntity productEntity) {
@@ -29,7 +34,7 @@ class CartEntity {
     return false;
   }
 
-  calculateCheckout() {
+  double calculateCheckout() {
     double total = 0;
     for (var item in cartEntityList) {
       total += item.totalPrice();
@@ -49,6 +54,7 @@ class CartEntity {
       }
     }
   }
+
   removeProductFromCart(ProductEntity productEntity) {
     for (var item in cartEntityList) {
       if (item.productEntity == productEntity) {
@@ -56,5 +62,14 @@ class CartEntity {
         break;
       }
     }
+  }
+
+  int getCount(ProductEntity productEntity) {
+    for (var item in cartEntityList) {
+      if (item.productEntity == productEntity) {
+        return item.count;
+      }
+    }
+    return 0;
   }
 }
