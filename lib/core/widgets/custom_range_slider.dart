@@ -9,20 +9,19 @@ class CustomRangeSlider extends StatefulWidget {
 }
 
 class _CustomRangeSliderState extends State<CustomRangeSlider> {
-  RangeValues rangeValues = const RangeValues(0, 100);
+  RangeValues rangeValues = RangeValues(0, 100);
   @override
   Widget build(BuildContext context) {
     return RangeSlider(
       min: 0,
       max: 200,
       values: rangeValues,
-      divisions: 50,
       labels: RangeLabels(r'$' + rangeValues.start.round().toString(),
           r'$' + rangeValues.end.round().toString()),
       onChanged: (RangeValues values) {
         setState(() {
           rangeValues = values;
-          widget.rangeValuesChanged!(values);
+          widget.rangeValuesChanged!(rangeValues);
         });
       },
     );

@@ -6,12 +6,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../utils/assets.dart';
 
-class CustomModalBottomSheet extends StatelessWidget {
+class CustomModalBottomSheet extends StatefulWidget {
   const CustomModalBottomSheet({
     super.key,
     this.onPressed,
   });
   final void Function()? onPressed;
+
+  @override
+  State<CustomModalBottomSheet> createState() => _CustomModalBottomSheetState();
+}
+
+class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
+  RangeValues rangeValues = const RangeValues(0, 200);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,9 +93,9 @@ class CustomModalBottomSheet extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: const Color(0xffE6E9E9))),
-                    child: const Center(
+                    child:  Center(
                       child: Text(
-                        '0',
+                        rangeValues.start.round().toString(),
                         style: Styles.regular13,
                       ),
                     ),
@@ -103,9 +110,9 @@ class CustomModalBottomSheet extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: const Color(0xffE6E9E9))),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        '0',
+                        rangeValues.end.round().toString(),
                         style: Styles.regular13,
                       ),
                     ),
@@ -113,11 +120,18 @@ class CustomModalBottomSheet extends StatelessWidget {
                 ],
               ),
             ),
-            const CustomRangeSlider(),
+            CustomRangeSlider(
+              rangeValuesChanged: (value) {
+                rangeValues = value;
+                setState(() {
+                  
+                });
+              },
+            ),
             const SizedBox(
               height: 12,
             ),
-            CustomButton(onPressed: onPressed, text: 'تصفية'),
+            CustomButton(onPressed: widget.onPressed, text: 'تصفية'),
           ],
         ),
       ),

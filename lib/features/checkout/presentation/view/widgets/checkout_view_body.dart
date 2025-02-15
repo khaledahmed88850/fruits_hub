@@ -2,8 +2,12 @@ import 'dart:developer';
 
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/utils/api_keys.dart';
+import 'package:e_commerce_app/core/widgets/custom_appbar.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
 import 'package:e_commerce_app/features/checkout/data/models/payment/amount.dart';
+import 'package:e_commerce_app/features/checkout/data/models/payment/details.dart';
+import 'package:e_commerce_app/features/checkout/data/models/payment/item.dart';
+import 'package:e_commerce_app/features/checkout/data/models/payment/item_list.dart';
 import 'package:e_commerce_app/features/checkout/data/models/payment/payment_model.dart';
 import 'package:e_commerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:e_commerce_app/features/checkout/presentation/manager/cubits/order_cubit/order_cubit.dart';
@@ -13,10 +17,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 
-import '../../../../../core/widgets/custom_appbar.dart';
-import '../../../data/models/payment/details.dart';
-import '../../../data/models/payment/item.dart';
-import '../../../data/models/payment/item_list.dart';
 
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
@@ -91,14 +91,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                           Navigator.pop(context);
                         },
                         onCancel: () {
-                          print('cancelled:');
+                          log('cancelled:');
                           Navigator.pop(context);
                         },
                       ),
                     ));
-                    // context.read<OrderCubit>().addOrder(
-                    //       order: context.read<OrderEntity>(),
-                    //     );
+                    context.read<OrderCubit>().addOrder(
+                          order: context.read<OrderEntity>(),
+                        );
                   }
                 }),
             const SizedBox(
