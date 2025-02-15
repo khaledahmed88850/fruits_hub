@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +6,10 @@ import '../../../../../core/utils/app_text_styles.dart';
 
 class RatingWidget extends StatelessWidget {
   const RatingWidget({
-    super.key, required this.productEntity,
+    super.key,
+    required this.productEntity,
   });
- final ProductEntity productEntity;
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +21,7 @@ class RatingWidget extends StatelessWidget {
         const SizedBox(
           width: 9,
         ),
-         Text(
+        Text(
           productEntity.avgRating.toString(),
           style: Styles.semiBold13,
         ),

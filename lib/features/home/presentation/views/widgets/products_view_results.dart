@@ -24,36 +24,34 @@ class _ProductsViewResultsState extends State<ProductsViewResults> {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding:const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: Column(
               children: [
                 customAppBar(
-                  onBackPressed: () {
-                    
-                  },
+                    onBackPressed: () {},
                     arrowBackExist: false,
                     title: 'المنتجات',
                     context: context,
                     notificationsActivated: true),
-              const  SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-               const SearchTextField(),
-               const SizedBox(
+                const SearchTextField(),
+                const SizedBox(
                   height: 16,
                 ),
-              const  ProductsResultHeader(),
-              const  SizedBox(
+                const ProductsResultHeader(),
+                const SizedBox(
                   height: 8,
                 ),
               ],
             ),
           ),
-       const   BestSellingGridViewBlocBuilder(),
+          const BestSellingGridViewBlocBuilder(),
         ],
       ),
     );

@@ -17,13 +17,14 @@ class CartCubit extends Cubit<CartState> {
     cartEntity.decreaseProductAmountFromCart(productEntity);
     emit(CartProductDecreased());
   }
-  void removeProductFromCart (ProductEntity productEntity) {
+
+  void removeProductFromCart(ProductEntity productEntity) {
     cartEntity.removeProductFromCart(productEntity);
     emit(CartProductRemoved());
   }
- int getCount (ProductEntity productEntity) 
-  {
-   int count = cartEntity.getCount(productEntity);
-   return count; 
-   }
+
+  int getCount(ProductEntity productEntity) {
+    int count = cartEntity.getCount(productEntity);
+    return count;
+  }
 }

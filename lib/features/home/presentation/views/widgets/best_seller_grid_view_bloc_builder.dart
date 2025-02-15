@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/features/auth/presentation/views/widgets/get_dummy_product.dart';
 import 'package:e_commerce_app/features/home/presentation/manager/cubits/get_products_cubit/get_product_cubit.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/best_selling_grid_view.dart';

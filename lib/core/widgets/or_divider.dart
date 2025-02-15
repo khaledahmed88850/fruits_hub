@@ -10,18 +10,19 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            
             color: Color(0xffDDDFDF),
             thickness: 1,
           ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 18),
-          child: Text('أو', style: Styles.semiBold16,),
+          child: Text(
+            'أو',
+            style: Styles.semiBold16,
+          ),
         ),
-          Expanded(
+        Expanded(
           child: Divider(
-            
             color: Color(0xffDDDFDF),
             thickness: 1,
           ),

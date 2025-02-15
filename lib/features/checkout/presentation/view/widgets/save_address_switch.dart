@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/utils/app_text_styles.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -22,21 +21,20 @@ class _SaveAddressSwitchState extends State<SaveAddressSwitch> {
         Transform.scale(
           scale: 0.75,
           child: CupertinoSwitch(
-            activeTrackColor: kDarkPrimaryColor,
-            value: isActive, onChanged: (value) {
-              setState(() {
-                isActive = value;
-              });
-
-            }),
+              activeTrackColor: kDarkPrimaryColor,
+              value: isActive,
+              onChanged: (value) {
+                setState(() {
+                  isActive = value;
+                });
+              }),
         ),
         SizedBox(
           width: 8,
         ),
         Text(
           'حفظ العنوان',
-          style:
-              Styles.semiBold13.copyWith(color: const Color(0xff949D9E)),
+          style: Styles.semiBold13.copyWith(color: const Color(0xff949D9E)),
         ),
       ],
     );

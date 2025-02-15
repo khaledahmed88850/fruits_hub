@@ -18,12 +18,25 @@ class OnBoardingPageView extends StatelessWidget {
             backgroundImage: Assets.imagesPageViewItemBackgroundImage1,
             subTitle:
                 'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
-            title:  Row(
+            title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('مرحبًا بك في' , style: Styles.bold23 ,),
-                Text(' HUB' , style:  Styles.bold23.copyWith(color: const Color(0xffF4A91F),),),
-                Text('Fruit', style: Styles.bold23.copyWith(color: kPrimaryColor,),),
+                const Text(
+                  'مرحبًا بك في',
+                  style: Styles.bold23,
+                ),
+                Text(
+                  ' HUB',
+                  style: Styles.bold23.copyWith(
+                    color: const Color(0xffF4A91F),
+                  ),
+                ),
+                Text(
+                  'Fruit',
+                  style: Styles.bold23.copyWith(
+                    color: kPrimaryColor,
+                  ),
+                ),
               ],
             )),
         const PageViewItems(
@@ -32,10 +45,7 @@ class OnBoardingPageView extends StatelessWidget {
             backgroundImage: Assets.imagesPageViewItemBackgroundImage2,
             subTitle:
                 'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-            title:  Text(
-              'ابحث وتسوق',
-              style: Styles.bold23
-            )),
+            title: Text('ابحث وتسوق', style: Styles.bold23)),
       ],
     );
   }

@@ -16,11 +16,11 @@ class SignupView extends StatelessWidget {
       create: (context) => CreateUserCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: customAppBar(
-          onBackPressed: 
-          () {
-            Navigator.pop(context);
-          },
-          title: 'حساب جديد', context: context),
+            onBackPressed: () {
+              Navigator.pop(context);
+            },
+            title: 'حساب جديد',
+            context: context),
         body: const SignupViewBodyBlocConsumer(),
       ),
     );

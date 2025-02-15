@@ -37,7 +37,7 @@ class SearchTextField extends StatelessWidget {
               showModalBottomSheet(
                   context: context,
                   builder: (context) {
-                    return  CustomModalBottomSheet(
+                    return CustomModalBottomSheet(
                       onPressed: onPressed,
                     );
                   });

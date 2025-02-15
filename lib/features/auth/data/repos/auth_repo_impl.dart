@@ -94,7 +94,7 @@ class AuthRepoImpl extends AuthRepo {
           path: BackendEndpoints.userData, documentId: userEntity.uId);
       if (dataExists) {
         await getUserData(uId: userEntity.uId);
-         await saveUserData(user: userEntity);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
       }
@@ -126,11 +126,10 @@ class AuthRepoImpl extends AuthRepo {
         path: BackendEndpoints.userData, documentId: uId);
     return UserModel.fromJson(userData);
   }
-  
+
   @override
-  Future saveUserData({required UserEntity user}) async{
+  Future saveUserData({required UserEntity user}) async {
     var jsonData = jsonEncode(UserModel.toEntity(user).toMap());
     await Prefs.setString(kUserData, jsonData);
-      
   }
 }

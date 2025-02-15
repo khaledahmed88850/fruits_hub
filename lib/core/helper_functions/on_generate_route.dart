@@ -28,8 +28,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ProductsView.routeName:
       return MaterialPageRoute(builder: (_) => const ProductsView());
     case CheckoutView.routeName:
-      return MaterialPageRoute(builder: (_) =>  CheckoutView(cartEntity: settings.arguments as CartEntity,));
-    
+      return MaterialPageRoute(
+          builder: (_) => CheckoutView(
+                cartEntity: settings.arguments as CartEntity,
+              ));
+
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (_) => const BestSellingView());
     default:

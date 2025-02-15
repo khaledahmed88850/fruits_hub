@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,19 +14,17 @@ class OurProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-           const   Text(
-                'منتجاتنا',
-                style: Styles.bold16,
-              ),
-              SvgPicture.asset(Assets.imagesSortingOptions),
-            ]),
-       const SizedBox(
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          const Text(
+            'منتجاتنا',
+            style: Styles.bold16,
+          ),
+          SvgPicture.asset(Assets.imagesSortingOptions),
+        ]),
+        const SizedBox(
           height: 8,
         ),
-      const  OurProductsListView()
+        const OurProductsListView()
       ],
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/utils/app_text_styles.dart';
 import 'package:e_commerce_app/features/best_selling/presentation/view/best_selling_view.dart';
 import 'package:flutter/material.dart';

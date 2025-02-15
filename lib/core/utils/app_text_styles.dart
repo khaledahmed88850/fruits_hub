@@ -52,8 +52,8 @@ abstract class Styles {
   static const TextStyle regular16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-  ); 
-   static const TextStyle regular11 = TextStyle(
+  );
+  static const TextStyle regular11 = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.normal,
   );

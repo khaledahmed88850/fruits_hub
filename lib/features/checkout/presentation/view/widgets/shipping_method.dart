@@ -6,9 +6,15 @@ import 'active_dot.dart';
 import 'in_active_dot.dart';
 
 class ShippingMethod extends StatelessWidget {
-  const ShippingMethod({super.key, required this.title, required this.subtitle, required this.price, required this.isSelected, required this.onTap});
-final String title, subtitle , price;
-final bool isSelected;
+  const ShippingMethod(
+      {super.key,
+      required this.title,
+      required this.subtitle,
+      required this.price,
+      required this.isSelected,
+      required this.onTap});
+  final String title, subtitle, price;
+  final bool isSelected;
   final void Function() onTap;
   @override
   Widget build(BuildContext context) {
@@ -17,14 +23,18 @@ final bool isSelected;
       child: IntrinsicHeight(
         child: AnimatedContainer(
           padding: EdgeInsets.all(18),
-          duration:const Duration(milliseconds: 300),
-          
+          duration: const Duration(milliseconds: 300),
           decoration: ShapeDecoration(
               color: const Color(0xffD9D9D9).withValues(alpha: 0.2),
-              shape: isSelected ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(4), side: const BorderSide(width: 1, color: kDarkPrimaryColor),)
-               : RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              )),
+              shape: isSelected
+                  ? RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                      side:
+                          const BorderSide(width: 1, color: kDarkPrimaryColor),
+                    )
+                  : RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    )),
           child: Padding(
             padding: const EdgeInsets.only(
               left: 16,
@@ -39,15 +49,15 @@ final bool isSelected;
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text(
-                    title,
+                    Text(
+                      title,
                       style: Styles.semiBold13,
                     ),
                     const SizedBox(
                       height: 6,
                     ),
                     Text(
-                     subtitle ,
+                      subtitle,
                       style: Styles.regular13
                           .copyWith(color: const Color.fromRGBO(0, 0, 0, 0.5)),
                     ),
@@ -56,7 +66,7 @@ final bool isSelected;
                 const Spacer(),
                 Center(
                   child: Text(
-                  price ,
+                    price,
                     style: Styles.bold13.copyWith(color: kLightPrimaryColor),
                   ),
                 ),

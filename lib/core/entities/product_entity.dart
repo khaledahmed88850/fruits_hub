@@ -1,4 +1,3 @@
-
 import 'review_entity.dart';
 
 class ProductEntity {
@@ -31,19 +30,18 @@ class ProductEntity {
       required this.unitAmount,
       required this.reviews});
 
-      toMap () 
-      {
-        return {
-          'name': name,
-          'price': price,
-          'code': code,
-          'description': description,
-          'imageUrl': imageUrl,
-          'isFeatured': isFeatured,
-          'isOrganic': isOrganic,
-          'expirationInMonths': expirationInMonths,
-          'calories': calories,
-          'unitAmount': unitAmount,
-        };
-      }
+  toMap() {
+    return {
+      'name': name,
+      'price': price,
+      'code': code,
+      'description': description,
+      'imageUrl': imageUrl,
+      'isFeatured': isFeatured,
+      'isOrganic': isOrganic,
+      'expirationInMonths': expirationInMonths,
+      'calories': calories,
+      'unitAmount': unitAmount,
+    };
+  }
 }

@@ -30,9 +30,13 @@ class ProductRepoImpl implements ProductRepo {
   @override
   Future<Either<Failures, List<ProductEntity>>> getBestSellingProducts() async {
     try {
-      var data = await databaseServices.getAllData(
-          path: BackendEndpoints.products,
-          query: {'orderBy': 'sellingCount',  'descending': true , 'greaterThan' : true , 'lessThan' : false});  
+      var data = await databaseServices
+          .getAllData(path: BackendEndpoints.products, query: {
+        'orderBy': 'sellingCount',
+        'descending': true,
+        'greaterThan': true,
+        'lessThan': false
+      });
       List<ProductModel> productList =
           data.map((e) => ProductModel.fromJson(e)).toList();
       return Right(productList.map((e) => e.toEntity()).toList());

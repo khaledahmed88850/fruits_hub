@@ -4,8 +4,10 @@ import 'package:e_commerce_app/features/checkout/presentation/view/widgets/shipp
 import 'package:flutter/material.dart';
 
 class StepsPageView extends StatelessWidget {
-  const StepsPageView(
-      {super.key, required this.pageController, });
+  const StepsPageView({
+    super.key,
+    required this.pageController,
+  });
   final PageController pageController;
 
   @override
@@ -22,9 +24,11 @@ class StepsPageView extends StatelessWidget {
     );
   }
 
-  List<Widget> getPages() =>  [
+  List<Widget> getPages() => [
         ShippingPage(),
         AddressPage(),
-        PaymentPage( pageController:  pageController,),
+        PaymentPage(
+          pageController: pageController,
+        ),
       ];
 }

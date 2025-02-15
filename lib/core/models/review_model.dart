@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/entities/review_entity.dart';
 
 class ReviewModel {
@@ -24,7 +23,7 @@ class ReviewModel {
       comment: reviewEntity.comment,
     );
   }
- ReviewEntity  toEntity () {
+  ReviewEntity toEntity() {
     return ReviewEntity(
       name: name,
       image: image,
@@ -33,6 +32,7 @@ class ReviewModel {
       comment: comment,
     );
   }
+
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
     return ReviewModel(
       name: json["name"],
@@ -40,7 +40,7 @@ class ReviewModel {
       date: json["date"],
       rating: json["rating"],
       comment: json["comment"],
-    );  
+    );
   }
 
   toJson() {

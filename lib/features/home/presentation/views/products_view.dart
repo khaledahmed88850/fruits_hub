@@ -35,10 +35,10 @@ class _ProductsViewState extends State<ProductsView> {
         ),
       ],
       child: BlocBuilder<ProductViewScreensCubit, int>(
-          builder: (context, state) {
-            return productViewScreens[state];
-          },
-        ),
+        builder: (context, state) {
+          return productViewScreens[state];
+        },
+      ),
     );
   }
 }

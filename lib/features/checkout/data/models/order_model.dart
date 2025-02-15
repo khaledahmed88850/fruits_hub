@@ -11,20 +11,18 @@ class OrderModel {
       {required this.addressEntity,
       this.payWithCash,
       required this.cartEntity});
-      factory OrderModel.fromEntity(OrderEntity OrderEntity) {
-        return OrderModel(
-          addressEntity: OrderEntity.addressEntity,
-          cartEntity: OrderEntity.cartEntity,
-          payWithCash: OrderEntity.payWithCash,
-        );
-        
-      }
-      toMap () 
-      {
-        return {  
-          "cart": cartEntity.toMap(),
-          "address": addressEntity.toMap(),
-          "payWithCash": payWithCash
-        };
-      }
+  factory OrderModel.fromEntity(OrderEntity orderEntity) {
+    return OrderModel(
+      addressEntity: orderEntity.addressEntity,
+      cartEntity: orderEntity.cartEntity,
+      payWithCash: orderEntity.payWithCash,
+    );
+  }
+  toMap() {
+    return {
+      "cart": cartEntity.toMap(),
+      "address": addressEntity.toMap(),
+      "payWithCash": payWithCash
+    };
+  }
 }

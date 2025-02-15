@@ -23,7 +23,10 @@ class FeaturedItem extends StatelessWidget {
               bottom: 0,
               top: 0,
               right: width * 0.4,
-              child: Image.asset(Assets.imagesWatermelonTest , fit: BoxFit.fill,),
+              child: Image.asset(
+                Assets.imagesWatermelonTest,
+                fit: BoxFit.fill,
+              ),
             ),
             Container(
               width: width * .5,
@@ -40,7 +43,7 @@ class FeaturedItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   const SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
                     Text(

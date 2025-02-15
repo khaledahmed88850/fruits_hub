@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 import '../../../domain/entities/navigation_bar_entity.dart';

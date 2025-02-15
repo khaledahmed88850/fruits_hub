@@ -11,17 +11,20 @@ import '../../../../checkout/presentation/view/checkout_view.dart';
 import 'cart_item.dart';
 
 class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key, });
+  const CartViewBody({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
           customAppBar(
-            onBackPressed: () {
-              Navigator.pop(context);
-            },
-            context: context, title: 'السلة'),
+              onBackPressed: () {
+                Navigator.pop(context);
+              },
+              context: context,
+              title: 'السلة'),
           const SizedBox(
             height: 16,
           ),
@@ -43,11 +46,17 @@ class CartViewBody extends StatelessWidget {
             children: List.generate(
                 context.watch<CartCubit>().cartEntity.cartEntityList.length,
                 (index) => CartItem(
-                      cartItemEntity: context.read<CartCubit>().cartEntity.cartEntityList[index],
+                      cartItemEntity: context
+                          .read<CartCubit>()
+                          .cartEntity
+                          .cartEntityList[index],
                     )),
           ),
           Visibility(
-            visible: context.read<CartCubit>().cartEntity.cartEntityList.isNotEmpty ? true : false,
+            visible:
+                context.read<CartCubit>().cartEntity.cartEntityList.isNotEmpty
+                    ? true
+                    : false,
             child: const Divider(
               color: Color(0xffF1F1F5),
               thickness: 1,
@@ -57,7 +66,10 @@ class CartViewBody extends StatelessWidget {
             height: 140,
           ),
           Visibility(
-            visible: context.read<CartCubit>().cartEntity.cartEntityList.isNotEmpty ? true : false,
+            visible:
+                context.read<CartCubit>().cartEntity.cartEntityList.isNotEmpty
+                    ? true
+                    : false,
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
@@ -66,7 +78,8 @@ class CartViewBody extends StatelessWidget {
                     Navigator.of(context).pushNamed(CheckoutView.routeName,
                         arguments: context.read<CartCubit>().cartEntity);
                   },
-                  text: 'الدفع ${context.read<CartCubit>().cartEntity.calculateCheckout()} جنية'),
+                  text:
+                      'الدفع ${context.read<CartCubit>().cartEntity.calculateCheckout()} جنية'),
             ),
           ),
           const SizedBox(

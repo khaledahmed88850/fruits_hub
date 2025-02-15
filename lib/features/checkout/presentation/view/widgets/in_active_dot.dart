@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class InActiveDot extends StatelessWidget {
@@ -14,8 +13,7 @@ class InActiveDot extends StatelessWidget {
       decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
-            side:
-                const BorderSide(width: 1, color: Color(0xff949D9E)),
+            side: const BorderSide(width: 1, color: Color(0xff949D9E)),
             borderRadius: BorderRadius.circular(32),
           )),
     );

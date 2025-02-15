@@ -7,4 +7,3 @@ abstract class Failures {
 class ServerFailure extends Failures {
   ServerFailure({required super.message});
 }
-

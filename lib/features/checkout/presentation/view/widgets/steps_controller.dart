@@ -37,4 +37,8 @@ class StepsController extends StatelessWidget {
   }
 }
 
-List<String> getSteps() => ['الشحن', 'العنوان', 'الدفع',];
+List<String> getSteps() => [
+      'الشحن',
+      'العنوان',
+      'الدفع',
+    ];

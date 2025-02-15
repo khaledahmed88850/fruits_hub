@@ -1,13 +1,22 @@
+import 'dart:developer';
+
 import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/utils/api_keys.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
+import 'package:e_commerce_app/features/checkout/data/models/payment/amount.dart';
+import 'package:e_commerce_app/features/checkout/data/models/payment/payment_model.dart';
 import 'package:e_commerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:e_commerce_app/features/checkout/presentation/manager/cubits/order_cubit/order_cubit.dart';
 import 'package:e_commerce_app/features/checkout/presentation/view/widgets/steps_controller.dart';
 import 'package:e_commerce_app/features/checkout/presentation/view/widgets/steps_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 
 import '../../../../../core/widgets/custom_appbar.dart';
+import '../../../data/models/payment/details.dart';
+import '../../../data/models/payment/item.dart';
+import '../../../data/models/payment/item_list.dart';
 
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
@@ -33,6 +42,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    var order = context.read<OrderEntity>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
       child: Form(
@@ -65,9 +75,30 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                   } else if (currentPage == 1) {
                     addressStepHandler();
                   } else if (currentPage == 2) {
-                    context.read<OrderCubit>().addOrder(
-                          order: context.read<OrderEntity>(),
-                        );
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => PaypalCheckoutView(
+                        sandboxMode: true,
+                        clientId: ApiKeys.clientId,
+                        secretKey: ApiKeys.secretKey,
+                        transactions: [paymentModelTransactions(order)],
+                        note: "Contact us for any questions on your order.",
+                        onSuccess: (Map params) async {
+                          log("onSuccess: $params");
+                          Navigator.pop(context);
+                        },
+                        onError: (error) {
+                          log("onError: $error");
+                          Navigator.pop(context);
+                        },
+                        onCancel: () {
+                          print('cancelled:');
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ));
+                    // context.read<OrderCubit>().addOrder(
+                    //       order: context.read<OrderEntity>(),
+                    //     );
                   }
                 }),
             const SizedBox(
@@ -77,6 +108,30 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ),
       ),
     );
+  }
+
+  Map<String, dynamic> paymentModelTransactions(OrderEntity order) {
+    return PaymentModel(
+      amount: Amount(
+        total: order.cartEntity.calculateCheckout().toString(),
+        currency: "USD",
+        details: Details(
+          subtotal: order.cartEntity.calculateCheckout().toString(),
+          shipping: "0",
+          shippingDiscount: 0,
+        ),
+      ),
+      description: "The payment transaction description.",
+      itemList: ItemList(
+        items: order.cartEntity.cartEntityList
+            .map((e) => Item(
+                name: e.productEntity.name,
+                quantity: e.count,
+                price: e.totalPrice().toString(),
+                currency: "USD"))
+            .toList(),
+      ),
+    ).toJson();
   }
 
   void addressStepHandler() {

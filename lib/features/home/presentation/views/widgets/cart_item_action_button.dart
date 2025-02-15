@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CartItemActionButton extends StatelessWidget {
@@ -6,7 +5,8 @@ class CartItemActionButton extends StatelessWidget {
     super.key,
     required this.backgroundColor,
     required this.iconColor,
-    required this.icon, this.onTap,
+    required this.icon,
+    this.onTap,
   });
   final Color backgroundColor, iconColor;
   final IconData icon;
@@ -14,7 +14,7 @@ class CartItemActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:  onTap,
+      onTap: onTap,
       child: CircleAvatar(
         radius: 12,
         backgroundColor: backgroundColor,

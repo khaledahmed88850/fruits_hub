@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -16,8 +15,7 @@ class HaveAnAccount extends StatelessWidget {
       children: [
         Text(
           'تمتلك حساب بالفعل؟ ',
-          style:
-              Styles.semiBold16.copyWith(color: const Color(0xff949D9E)),
+          style: Styles.semiBold16.copyWith(color: const Color(0xff949D9E)),
         ),
         GestureDetector(
           onTap: () {

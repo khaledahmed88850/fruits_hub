@@ -2,8 +2,10 @@ import 'package:e_commerce_app/core/utils/app_text_styles.dart';
 import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class ReviewsWidget extends StatelessWidget {
-  const ReviewsWidget({super.key, required this.avgRating, required this.numRating});
+  const ReviewsWidget(
+      {super.key, required this.avgRating, required this.numRating});
   final double avgRating;
   final int numRating;
   @override
@@ -38,7 +40,8 @@ class ReviewsWidget extends StatelessWidget {
               ),
               Text(
                 'Reviews',
-                style: Styles.semiBold13.copyWith(color: const Color(0xff979899)),
+                style:
+                    Styles.semiBold13.copyWith(color: const Color(0xff979899)),
               ),
             ],
           ),

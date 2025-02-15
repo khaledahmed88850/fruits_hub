@@ -16,11 +16,11 @@ class LoginView extends StatelessWidget {
       create: (context) => LoginCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: customAppBar(
-          
-          onBackPressed: () {
-            Navigator.pop(context);
-          },
-          title: 'تسجيل دخول', context: context),
+            onBackPressed: () {
+              Navigator.pop(context);
+            },
+            title: 'تسجيل دخول',
+            context: context),
         body: const LoginViewBodyBlocConsumer(),
       ),
     );

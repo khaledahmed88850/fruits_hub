@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -6,9 +5,10 @@ import '../../../../../core/utils/app_text_styles.dart';
 
 class FeaturedItemButton extends StatelessWidget {
   const FeaturedItemButton({
-    super.key, this.onPressed,
+    super.key,
+    this.onPressed,
   });
-final void Function()? onPressed;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

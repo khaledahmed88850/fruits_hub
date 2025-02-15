@@ -9,9 +9,8 @@ class FruitItemDetailsView extends StatelessWidget {
   final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
-    return 
- Scaffold(
-          body: FruitItemDetailsViewBody(
+    return Scaffold(
+      body: FruitItemDetailsViewBody(
         productEntity: productEntity,
       ),
     );

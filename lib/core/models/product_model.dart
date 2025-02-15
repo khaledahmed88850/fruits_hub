@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/entities/product_entity.dart';
 import 'package:e_commerce_app/core/models/review_model.dart';
 
@@ -14,8 +13,8 @@ class ProductModel {
   final int calories;
   final int unitAmount;
   final int sellingCount;
-  double avgRating ;
-  int numRating ;
+  double avgRating;
+  int numRating;
   final List<ReviewModel> reviews;
   ProductModel({
     this.avgRating = 0.0,
@@ -52,7 +51,6 @@ class ProductModel {
           ? []
           : List<ReviewModel>.from(
               json['reviews'].map((x) => ReviewModel.fromJson(x))),
-
     );
   }
   ProductEntity toEntity() {
@@ -92,7 +90,7 @@ class ProductModel {
   }
 }
 
-getAvgRating( reviews) {
+getAvgRating(reviews) {
   if (reviews.isEmpty) return 0.0;
   double sum = 0.0;
   for (var review in reviews) {

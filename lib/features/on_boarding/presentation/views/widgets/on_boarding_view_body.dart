@@ -48,10 +48,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           dotsCount: 2,
           position: 0,
           decorator: DotsDecorator(
-              activeColor: kPrimaryColor,
-              color: currentPage == 1
-                  ? kPrimaryColor
-                  : kPrimaryColor.withValues(alpha:0.5),),
+            activeColor: kPrimaryColor,
+            color: currentPage == 1
+                ? kPrimaryColor
+                : kPrimaryColor.withValues(alpha: 0.5),
+          ),
         ),
         const SizedBox(
           height: 29,

@@ -23,7 +23,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password;
-  bool obscureText = true ;
+  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -50,12 +50,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 hintText: 'كلمة المرور',
                 textInputType: TextInputType.visiblePassword,
                 suffixIcon: GestureDetector(
-                  onTap: () {
-                setState(() {
-                  obscureText = !obscureText;
-                });
-                  },
-                  child: const Icon(Icons.visibility_sharp)),
+                    onTap: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                    child: const Icon(Icons.visibility_sharp)),
                 obscureText: obscureText,
               ),
               Row(
@@ -75,7 +75,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       formKey.currentState!.save();
                       autovalidateMode = AutovalidateMode.disabled;
                       BlocProvider.of<LoginCubit>(context)
-                          .loginWithEmailAndPassword(email: email, password: password);
+                          .loginWithEmailAndPassword(
+                              email: email, password: password);
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -94,8 +95,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               SocialLoginButton(
-                onPressed:() {
+              SocialLoginButton(
+                onPressed: () {
                   BlocProvider.of<LoginCubit>(context).loginWithGoogle();
                 },
                 title: 'تسجيل بواسطة جوجل',
@@ -111,7 +112,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(
                 height: 16,
               ),
-               SocialLoginButton(
+              SocialLoginButton(
                 onPressed: () {
                   BlocProvider.of<LoginCubit>(context).loginWithFacebook();
                 },

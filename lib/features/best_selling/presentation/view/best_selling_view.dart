@@ -9,9 +9,7 @@ class BestSellingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(
-        onBackPressed: () {
-          
-        },
+          onBackPressed: () {},
           context: context,
           title: 'الأكثر مبيعًا',
           notificationsActivated: true),

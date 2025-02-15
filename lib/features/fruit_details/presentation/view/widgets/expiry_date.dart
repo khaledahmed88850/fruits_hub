@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ExpiryDate extends StatelessWidget {
-  const ExpiryDate({super.key, required this.expiryInMonths}); 
+  const ExpiryDate({super.key, required this.expiryInMonths});
   final int expiryInMonths;
 
   @override
@@ -39,7 +39,8 @@ class ExpiryDate extends StatelessWidget {
               ),
               Text(
                 'الصلاحية',
-                style: Styles.semiBold13.copyWith(color: const Color(0xff979899)),
+                style:
+                    Styles.semiBold13.copyWith(color: const Color(0xff979899)),
               ),
             ],
           ),
@@ -49,4 +50,3 @@ class ExpiryDate extends StatelessWidget {
     );
   }
 }
-

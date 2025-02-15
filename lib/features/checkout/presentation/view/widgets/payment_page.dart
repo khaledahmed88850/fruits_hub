@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({
-    super.key, required this.pageController,
+    super.key,
+    required this.pageController,
   });
   final PageController pageController;
   @override
@@ -29,8 +30,10 @@ class PaymentPage extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-         Center(
-          child: ShowAddressWidget( pageController:  pageController,),
+        Center(
+          child: ShowAddressWidget(
+            pageController: pageController,
+          ),
         )
       ],
     );

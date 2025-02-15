@@ -10,14 +10,15 @@ class FeaturedItemListView extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: 
-          List.generate(4, (index) {
-            return const  Padding(
-              padding:  EdgeInsets.only(left: 8),
-              child:  FeaturedItem(),
-            );
-          }, )
-      ),
+          children: List.generate(
+        4,
+        (index) {
+          return const Padding(
+            padding: EdgeInsets.only(left: 8),
+            child: FeaturedItem(),
+          );
+        },
+      )),
     );
   }
 }

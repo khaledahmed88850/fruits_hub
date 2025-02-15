@@ -2,9 +2,10 @@ import 'package:e_commerce_app/core/utils/app_text_styles.dart';
 import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class OrganicWidget extends StatelessWidget {
   const OrganicWidget({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +38,8 @@ class OrganicWidget extends StatelessWidget {
               ),
               Text(
                 'اورجانيك',
-                style: Styles.semiBold13.copyWith(color: const Color(0xff979899)),
+                style:
+                    Styles.semiBold13.copyWith(color: const Color(0xff979899)),
               ),
             ],
           ),

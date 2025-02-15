@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,8 +27,8 @@ class OrderPriceWidget extends StatelessWidget {
             children: [
               Text(
                 'المجموع الفرعي :',
-                style: Styles.regular13
-                    .copyWith(color: const Color(0xff4E5556)),
+                style:
+                    Styles.regular13.copyWith(color: const Color(0xff4E5556)),
               ),
               const Spacer(),
               Text(
@@ -45,14 +44,14 @@ class OrderPriceWidget extends StatelessWidget {
             children: [
               Text(
                 'التوصيل :',
-                style: Styles.regular13
-                    .copyWith(color: const Color(0xff4E5556)),
+                style:
+                    Styles.regular13.copyWith(color: const Color(0xff4E5556)),
               ),
               const Spacer(),
               Text(
                 '30 جنيه',
-                style: Styles.semiBold13
-                    .copyWith(color: const Color(0xff4E5556)),
+                style:
+                    Styles.semiBold13.copyWith(color: const Color(0xff4E5556)),
               ),
             ],
           ),

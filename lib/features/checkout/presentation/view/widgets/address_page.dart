@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:e_commerce_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:e_commerce_app/features/checkout/presentation/view/widgets/save_address_switch.dart';
@@ -56,8 +55,7 @@ class AddressPage extends StatelessWidget {
             hintText: 'رقم الطابق , رقم الشقه ..',
             textInputType: TextInputType.text,
             onSaved: (value) {
-              context.read<OrderEntity>().addressEntity.addressDetails =
-                  value!;
+              context.read<OrderEntity>().addressEntity.addressDetails = value!;
             },
           ),
           const SaveAddressSwitch(),

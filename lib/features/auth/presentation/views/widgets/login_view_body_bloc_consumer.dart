@@ -17,7 +17,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-            Navigator.pushNamed(context, MainView.routeName);
+          Navigator.pushNamed(context, MainView.routeName);
         }
         if (state is LoginFailure) {
           buildError(context, state.message);
@@ -25,8 +25,8 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: state is LoginLoading ? true : false,
-          child: const LoginViewBody());
+            inAsyncCall: state is LoginLoading ? true : false,
+            child: const LoginViewBody());
       },
     );
   }
