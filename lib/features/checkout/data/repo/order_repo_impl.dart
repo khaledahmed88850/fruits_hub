@@ -29,7 +29,7 @@ class OrderRepoImpl implements OrderRepo {
         subCollection: BackendEndpoints.orders,
       );
       return right(null);
-    } on Exception catch (e) {
+    } on Exception {
       return left(
           ServerFailure(message: 'حدث خطأ ما. يرجى المحاولة مرة أخرى'));
     }

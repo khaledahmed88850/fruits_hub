@@ -52,6 +52,7 @@ dependencies:
   provider: ^6.1.2
   shared_preferences: ^2.4.0
   skeletonizer: ^1.4.3
+  sliver_tools: ^0.2.12
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

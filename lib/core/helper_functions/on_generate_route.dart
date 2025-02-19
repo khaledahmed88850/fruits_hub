@@ -2,8 +2,10 @@ import 'package:e_commerce_app/features/auth/presentation/views/login_view.dart'
 import 'package:e_commerce_app/features/checkout/presentation/view/checkout_view.dart';
 import 'package:e_commerce_app/features/home/domain/entities/cart_entity.dart';
 import 'package:e_commerce_app/features/home/presentation/views/main_view.dart';
+import 'package:e_commerce_app/features/home/presentation/views/products_result_view.dart';
 import 'package:e_commerce_app/features/home/presentation/views/products_view.dart';
 import 'package:e_commerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:e_commerce_app/features/search/presentation/view/search_view.dart';
 import 'package:e_commerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +27,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const MainView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (_) => const HomeView());
+    case SearchView.routeName:
+      return MaterialPageRoute(builder: (_) => const SearchView());
+    case ProductsResultView.routeName:
+      return MaterialPageRoute(builder: (_) => const ProductsResultView());
     case ProductsView.routeName:
       return MaterialPageRoute(builder: (_) => const ProductsView());
     case CheckoutView.routeName:

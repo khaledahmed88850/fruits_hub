@@ -6,16 +6,16 @@ import '../../../../../core/utils/assets.dart';
 
 class ProductsResultHeader extends StatelessWidget {
   const ProductsResultHeader({
-    super.key,
+    super.key, required this.length,
   });
-
+  final int length ;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          '4 نتائج',
+         Text(
+          '$length نتائج',
           style: Styles.bold16,
         ),
         SvgPicture.asset(Assets.imagesSortingOptions),

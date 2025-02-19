@@ -6,8 +6,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/widgets/custom_modal_bottom_sheet.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, this.onPressed});
+  const SearchTextField({super.key, this.onPressed, this.onSubmitted});
   final void Function()? onPressed;
+  final void Function(String)? onSubmitted;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,6 +20,7 @@ class SearchTextField extends StatelessWidget {
         )
       ]),
       child: TextField(
+        onSubmitted: onSubmitted,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           fillColor: const Color(0xFFF9FAFA),
@@ -38,7 +40,6 @@ class SearchTextField extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return CustomModalBottomSheet(
-                    
                       onPressed: onPressed,
                     );
                   });

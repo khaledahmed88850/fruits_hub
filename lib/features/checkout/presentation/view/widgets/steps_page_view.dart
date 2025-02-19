@@ -25,8 +25,8 @@ class StepsPageView extends StatelessWidget {
   }
 
   List<Widget> getPages() => [
-        ShippingPage(),
-        AddressPage(),
+        const ShippingPage(),
+        const AddressPage(),
         PaymentPage(
           pageController: pageController,
         ),

@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/constants.dart';
 import 'package:e_commerce_app/core/widgets/custom_appbar.dart';
-import 'package:e_commerce_app/features/home/presentation/manager/cubits/products_view_screens_cubit/product_view_screens_cubit.dart';
+import 'package:e_commerce_app/features/home/presentation/views/products_result_view.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/best_selling_header.dart';
 import 'package:e_commerce_app/features/home/presentation/views/widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../manager/cubits/get_products_cubit/get_product_cubit.dart';
-import 'best_seller_grid_view_bloc_builder.dart';
+import 'products_grid_view_bloc_builder.dart';
 import 'our_products.dart';
 
 class ProductsViewBody extends StatefulWidget {
@@ -21,7 +21,7 @@ class ProductsViewBody extends StatefulWidget {
 class _ProductsViewBodyState extends State<ProductsViewBody> {
   @override
   void initState() {
-    context.read<GetProductCubit>().getBestSellingProducts();
+    context.read<GetProductCubit>().getProducts();
     super.initState();
   }
 
@@ -45,7 +45,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                 ),
                 SearchTextField(
                   onPressed: () {
-                    context.read<ProductViewScreensCubit>().changeIndex(1);
+                    Navigator.popAndPushNamed(context, ProductsResultView.routeName);
                   },
                 ),
                 const SizedBox(
@@ -62,7 +62,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
               ],
             ),
           ),
-          const BestSellingGridViewBlocBuilder(),
+          const ProductsGridViewBlocBuilder(),
         ],
       ),
     );

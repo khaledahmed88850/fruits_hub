@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'fruit_item.dart';
 
-class BestSellingGridView extends StatelessWidget {
-  const BestSellingGridView({
+class ProductsGridView extends StatelessWidget {
+  const ProductsGridView({
     super.key,
     required this.products,
   });

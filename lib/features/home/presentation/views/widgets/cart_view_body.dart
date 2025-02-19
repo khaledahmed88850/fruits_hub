@@ -1,10 +1,11 @@
 import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/helper_functions/indexed_stack_provider.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/widgets/custom_appbar.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
 import 'package:e_commerce_app/features/home/presentation/manager/cubits/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../checkout/presentation/view/checkout_view.dart';
@@ -21,7 +22,8 @@ class CartViewBody extends StatelessWidget {
         children: [
           customAppBar(
               onBackPressed: () {
-                Navigator.pop(context);
+                Provider.of<IndexStackProvider>(context , listen: false).setIndex(0);
+                
               },
               context: context,
               title: 'السلة'),

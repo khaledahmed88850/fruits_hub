@@ -44,4 +44,17 @@ class ProductRepoImpl implements ProductRepo {
       return Left(ServerFailure(message: 'Failed to get products'));
     }
   }
+
+  @override
+  Future<Either<Failures, List<ProductEntity>>> getProductByName(
+      {required String name}) async {
+    try {
+      var result = await databaseServices.getDataByName(
+          path: BackendEndpoints.products, query: {'name': name});
+      return Right(
+          result.map((e) => ProductModel.fromJson(e).toEntity()).toList());
+    } on Exception {
+      return Left(ServerFailure(message: 'Failed to get products'));
+    }
+  }
 }

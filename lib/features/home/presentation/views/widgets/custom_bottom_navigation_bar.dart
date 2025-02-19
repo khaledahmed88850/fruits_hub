@@ -1,6 +1,8 @@
 import 'dart:core';
+import 'package:e_commerce_app/core/helper_functions/indexed_stack_provider.dart';
 import 'package:e_commerce_app/features/home/domain/entities/navigation_bar_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'navigation_bar_items.dart';
 
@@ -14,10 +16,10 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  var selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
+    var selectedIndex = Provider.of<IndexStackProvider>(context);
+
     return Container(
       height: 70,
       width: double.infinity,
@@ -41,15 +43,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         int index = entry.key;
         var entity = entry.value;
         return Expanded(
-          flex: index == selectedIndex ? 2 : 1,
+          flex: index == selectedIndex.currentIndex ? 2 : 1,
           child: GestureDetector(
             onTap: () {
-              selectedIndex = index;
+              selectedIndex.setIndex(index);
               widget.onItemTapped(index);
               setState(() {});
             },
             child: NavigationBarItems(
-              isActive: index == selectedIndex,
+              isActive: index == selectedIndex.currentIndex,
               navigationBarEntity: entity,
             ),
           ),

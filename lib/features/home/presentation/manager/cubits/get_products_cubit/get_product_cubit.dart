@@ -22,4 +22,11 @@ class GetProductCubit extends Cubit<GetProductState> {
     result.fold((failure) => emit(GetProductFailed(message: failure.message)),
         (products) => emit(GetProductSuccess(products: products)));
   }
+
+  Future<void> getProductByName(String name) async {
+    emit(GetProductLoading());
+    final result = await productRepo.getProductByName(name: name);
+    result.fold((failure) => emit(GetProductFailed(message: failure.message)),
+        (products) => emit(GetProductSuccess(products: products)));
+  }
 }

@@ -29,7 +29,7 @@ class _SaveAddressSwitchState extends State<SaveAddressSwitch> {
                 });
               }),
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
         Text(

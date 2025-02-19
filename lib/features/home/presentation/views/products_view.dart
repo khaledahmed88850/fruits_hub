@@ -19,7 +19,7 @@ class ProductsView extends StatefulWidget {
 class _ProductsViewState extends State<ProductsView> {
   List<Widget> productViewScreens = [
     const ProductsViewBody(),
-    const ProductsViewResults(),
+    const ProductsResultViewBody(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,7 @@ class _ProductsViewState extends State<ProductsView> {
           create: (context) => ProductViewScreensCubit(),
         ),
       ],
-      child: BlocBuilder<ProductViewScreensCubit, int>(
-        builder: (context, state) {
-          return productViewScreens[state];
-        },
-      ),
+     child: const ProductsViewBody(),
     );
   }
 }

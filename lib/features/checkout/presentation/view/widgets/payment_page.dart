@@ -24,7 +24,7 @@ class PaymentPage extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Center(
+        const Center(
           child: OrderPriceWidget(),
         ),
         const SizedBox(

@@ -9,7 +9,7 @@ class CustomRangeSlider extends StatefulWidget {
 }
 
 class _CustomRangeSliderState extends State<CustomRangeSlider> {
-  RangeValues rangeValues = RangeValues(0, 100);
+  RangeValues rangeValues = const RangeValues(0, 100);
   @override
   Widget build(BuildContext context) {
     return RangeSlider(

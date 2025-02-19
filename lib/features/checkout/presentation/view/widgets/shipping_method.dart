@@ -22,7 +22,7 @@ class ShippingMethod extends StatelessWidget {
       onTap: onTap,
       child: IntrinsicHeight(
         child: AnimatedContainer(
-          padding: EdgeInsets.all(18),
+          padding: const EdgeInsets.all(18),
           duration: const Duration(milliseconds: 300),
           decoration: ShapeDecoration(
               color: const Color(0xffD9D9D9).withValues(alpha: 0.2),

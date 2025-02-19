@@ -58,8 +58,32 @@ class FirestoreServices implements DatabaseServices {
         int limitQuery = query['limit'];
         data = data.limit(limitQuery);
       }
+     
       var result = await data.get();
       return result.docs.map((e) => e.data()).toList();
+    }
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> getDataByName(
+      {required String path, Map<String, dynamic>? query}) async {
+    if (query != null) {
+      if (query['name'] != null) {
+        try {
+          String name = query['name'];
+          var data = await firestore
+              .collection(path)
+              .where('name', isEqualTo: name)
+              .get();
+          return data.docs.map((e) => e.data()).toList();
+        } on Exception {
+          throw Exception('Failed to get products');
+        }
+      } else {
+        throw Exception('name is null');
+      }
+    } else {
+      throw Exception('query is null');
     }
   }
 }

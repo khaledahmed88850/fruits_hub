@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:e_commerce_app/core/helper_functions/get_it_function.dart';
 import 'package:e_commerce_app/core/helper_functions/on_generate_route.dart';
 import 'package:e_commerce_app/core/services/custom_bloc_observer.dart';

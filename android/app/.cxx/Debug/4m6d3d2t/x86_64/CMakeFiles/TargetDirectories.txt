@@ -1,0 +1,2 @@
+C:/Users/khale/projects/e_commerce_app/android/app/.cxx/Debug/4m6d3d2t/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/khale/projects/e_commerce_app/android/app/.cxx/Debug/4m6d3d2t/x86_64/CMakeFiles/rebuild_cache.dir
