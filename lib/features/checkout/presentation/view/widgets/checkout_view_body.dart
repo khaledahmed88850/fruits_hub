@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce_app/constants.dart';
+import 'package:e_commerce_app/core/helper_functions/build_error.dart';
 import 'package:e_commerce_app/core/utils/api_keys.dart';
 import 'package:e_commerce_app/core/widgets/custom_appbar.dart';
 import 'package:e_commerce_app/core/widgets/custom_button.dart';
@@ -16,7 +17,6 @@ import 'package:e_commerce_app/features/checkout/presentation/view/widgets/steps
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
-
 
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
@@ -147,9 +147,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     }
   }
 
-  void shippingStepHandler(BuildContext context) {
+  shippingStepHandler(BuildContext context) {
     if (context.read<OrderEntity>().payWithCash == null) {
-      return;
+      buildError(context, 'اختر طريقة الدفع', color: Colors.black87);
     } else {
       pageController.animateToPage(currentPage + 1,
           duration: const Duration(milliseconds: 300), curve: Curves.bounceIn);

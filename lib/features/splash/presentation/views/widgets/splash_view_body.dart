@@ -49,7 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Future.delayed(const Duration(seconds: 3), () {
       if (isOnBoardingViewSeen) {
         if (isUserLoggedIn) {
-          Navigator.pushReplacementNamed(context, MainView.routeName);
+          Navigator.pushReplacementNamed(context, LoginView.routeName);
         } else {
           Navigator.pushReplacementNamed(context, LoginView.routeName);
         }

@@ -1,15 +1,16 @@
 import 'package:e_commerce_app/core/utils/app_text_styles.dart';
+import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-import '../utils/assets.dart';
 
 AppBar customAppBar(
     {required void Function()? onBackPressed,
     bool arrowBackExist = true,
     required BuildContext context,
     required String title,
-    bool notificationsActivated = false}) {
+    bool notificationsActivated = false,
+   }) {
   return AppBar(
     backgroundColor: Colors.transparent,
     scrolledUnderElevation: 0,
@@ -18,7 +19,7 @@ AppBar customAppBar(
         ? IconButton(
             onPressed: onBackPressed,
             icon: const Icon(
-              Icons.arrow_back_ios_new_sharp,
+              Icons.arrow_back_ios_new_sharp, 
             ))
         : const SizedBox.shrink(),
     title: Text(
@@ -26,21 +27,16 @@ AppBar customAppBar(
       style: Styles.bold19,
     ),
     centerTitle: true,
-    actions: [
-      notificationsActivated
-          ? IconButton(
+    actions: notificationsActivated
+        ? [
+            IconButton(
+              icon:  SvgPicture.asset (
+                Assets.imagesNotifications
+              ),
               onPressed: () {},
-              icon: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xffEEF8ED),
-                  ),
-                  child: SvgPicture.asset(
-                    Assets.imagesNotifications,
-                  )),
-            )
-          : const SizedBox.shrink()
-    ],
+            ),
+          ]
+        : [],
+    
   );
 }
